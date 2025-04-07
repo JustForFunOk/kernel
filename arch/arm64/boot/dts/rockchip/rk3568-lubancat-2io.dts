@@ -297,7 +297,7 @@
 			label = "heartbeat";
 			linux,default-trigger = "heartbeat";
 			default-state = "on";
-			gpios = <&gpio4 RK_PD2 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
 			pinctrl-names = "default";
 			pinctrl-0 = <&led0_pin>;
 		};
