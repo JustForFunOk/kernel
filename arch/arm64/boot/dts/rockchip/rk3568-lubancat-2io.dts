@@ -118,18 +118,7 @@
 		regulator-name = "sata_power";
 	};
 
-	m2_pcie_3v3: m2pcie-3v3-regulator {
-		compatible = "regulator-fixed";
-		regulator-name = "m2_pcie_3v3";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		enable-active-high;
-		regulator-always-on;
-		gpio = <&gpio0 RK_PD3 GPIO_ACTIVE_HIGH>;
-		startup-delay-us = <5000>;
-		vin-supply = <&vcc5v0_sys>;
-	};
-
+	/* DASHCAM NEED */
 	mini_pcie_3v3: minipcie-3v3-regulator {
 		compatible = "regulator-fixed";
 		regulator-name = "mini_pcie_3v3";
@@ -531,7 +520,7 @@
 	status = "okay";
 };
 
-/* MULTI_PHY0 For SATA0, USB3.0 OTG0 Only USB2.0 */
+/* MULTI_PHY0 For USB3.0 OTG0 */
 &combphy0_us {
 	status = "okay";
 };
@@ -541,14 +530,12 @@
 };
 
 &usbdrd_dwc3 {
-	dr_mode = "otg";
-	extcon = <&usb2phy0>;
+	dr_mode = "peripheral";
 	status = "okay";
 };
 
 &sata0 {
-	target-supply = <&sata_power>;
-	status = "okay";
+	status = "disable";
 };
 
 /* MULTI_PHY1 For USB3.0 HOST1 */
