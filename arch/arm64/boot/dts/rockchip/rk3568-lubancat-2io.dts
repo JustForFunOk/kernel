@@ -59,6 +59,20 @@
 		vin-supply = <&vcc5v0_sys>;
 	};
 
+	adc_keys: adc-keys {
+		compatible = "adc-keys";
+		io-channels = <&saradc 0>;
+		io-channel-names = "buttons";
+		keyup-threshold-microvolt = <1800000>;
+		poll-interval = <100>;
+
+		recovery {
+			label = "recovery";
+			linux,code = <KEY_ENTER>;
+			press-threshold-microvolt = <1000000>;
+		};
+	};
+
 	leds: leds {
 		status = "okay";
 		compatible = "gpio-leds";
