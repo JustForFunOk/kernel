@@ -135,6 +135,8 @@ x509.genkey
 all.config
 defconfig
 
+!.config
+
 # Kdevelop4
 *.kdev4
 *.dtb*
