@@ -18,6 +18,23 @@ Please read the Documentation/process/changes.rst file, as it contains the
 requirements for building and running the kernel, and information about
 the problems which may result by upgrading your kernel.
 
+##  OS
+
+ubuntu20.04
+
+## Install Dependency
+``` bash
+sudo apt install gcc make git bc libssl-dev liblz4-tool device-tree-compiler bison flex u-boot-tools gcc-aarch64-linux-gnu
+```
+
+## BUILD Kernel
+``` bash
+make mrproper
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- lubancat2_defconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j8
+```
+
+
 ## BUILD DTB
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- lubancat2_defconfig
 
